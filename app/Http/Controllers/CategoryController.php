@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
-use Illuminate\Support\Str;
-
 class CategoryController extends Controller
 {
     private $category, $categories;
@@ -19,12 +17,12 @@ class CategoryController extends Controller
     public function create(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required|unique:categories,name',
-            'description'=>'nullable',
-            'image'=>'nullable|image',
-            'status'=>'nullable|in:0,1',
+            'name'          => 'required|unique:categories,name',
+            'description'   =>'nullable',
+            'image'         =>'nullable|image',
+            'status'        =>'nullable|in:0,1',
         ],[
-            'status.in'=>'You can select only "Active" or "Inactive".'
+            'status.in'     =>'Status can only "Active" or "Inactive".'
         ]);
 
         Category::newCategory($request);
@@ -50,12 +48,12 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name' => 'required|unique:categories,name,'.$id,
-            'description'=>'nullable',
-            'image'=>'nullable|image',
-            'status'=>'nullable|in:0,1',
+            'name'          => 'required|unique:categories,name,'.$id,
+            'description'   =>'nullable',
+            'image'         =>'nullable|image',
+            'status'        =>'required|in:0,1',
         ],[
-            'status.in'=>'You can select only "Active" or "Inactive".'
+            'status.in'     =>'Status can only "Active" or "Inactive".'
         ]);
 
         Category::updateCategory($request, $id);

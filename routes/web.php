@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BitmEcomController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubcategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +34,14 @@ Route::middleware([
         Route::post('/category/edit/{id}','update')->name('category.edit');
         Route::get('/category/manage','manage')->name('category.manage');
         Route::get('/category/delete/{id}','delete')->name('category.delete');
+    });
+
+    Route::controller(SubcategoryController::class)->group(function (){
+        Route::get('/subcategory/add','index')->name('subcategory.add');
+        Route::get('/subcategory/edit/{id}','edit')->name('subcategory.edit');
+        Route::post('/subcategory/add','create')->name('subcategory.add');
+        Route::post('/subcategory/edit/{id}','update')->name('subcategory.edit');
+        Route::get('/subcategory/manage','manage')->name('subcategory.manage');
+        Route::get('/subcategory/delete/{id}','delete')->name('subcategory.delete');
     });
 });

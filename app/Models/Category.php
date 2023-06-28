@@ -20,9 +20,9 @@ class Category extends Model
         if ($request->file('image')) {
             self::$category->image = storeImage($request->file('image'), 'images/category/', 300, 200);
         }
-        self::$category->name = ucwords($request->name);
-        self::$category->description = $request->description;
-        self::$category->slug = genSulg($request->name);
+        self::$category->name           = ucwords($request->name);
+        self::$category->description    = $request->description;
+        self::$category->slug           = genSulg($request->name);
         self::$category->save();
         $count = Category::where('name', $request->name)->count();
         if ($count > 1) {
@@ -41,10 +41,10 @@ class Category extends Model
             }
             self::$category->image = storeImage($request->file('image'), 'images/category/', 300, 200);
         }
-        self::$category->name = ucwords($request->name);
-        self::$category->description = $request->description;
-        self::$category->slug = genSulg($request->name, $count, self::$category->id);
-        self::$category->status = $request->status;
+        self::$category->name           = ucwords($request->name);
+        self::$category->description    = $request->description;
+        self::$category->slug           = genSulg($request->name, $count, self::$category->id);
+        self::$category->status         = $request->status;
         self::$category->save();
     }
 
