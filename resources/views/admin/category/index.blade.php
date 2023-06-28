@@ -29,18 +29,27 @@
                             <label class="col-md-3 form-label">Category Name</label>
                             <div class="col-md-9">
                                 <input class="form-control" placeholder="Category name" type="text" name="name">
+                                @if($errors->has('name'))
+                                    <span class="text-danger">{{$errors->first('name')}}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Description</label>
                             <div class="col-md-9">
                                 <textarea name="description" class="form-control" placeholder="Description"></textarea>
+                                @if($errors->has('description'))
+                                    <span class="text-danger">{{$errors->first('description')}}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Category Image</label>
                             <div class="col-md-9">
                                 <input class="form-control" placeholder="Category Image" type="file" name="image" accept="image/*">
+                                @if($errors->has('image'))
+                                    <span class="text-danger">{{$errors->first('image')}}</span>
+                                @endif
                             </div>
                         </div>
 

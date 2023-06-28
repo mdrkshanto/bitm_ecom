@@ -18,6 +18,15 @@ class CategoryController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required|unique:categories,name',
+            'description'=>'nullable',
+            'image'=>'nullable|image',
+            'status'=>'nullable|in:0,1',
+        ],[
+            'status.in'=>'You can select only "Active" or "Inactive".'
+        ]);
+
         Category::newCategory($request);
         return back()->with('message', 'Category created successfully.');
     }
@@ -40,6 +49,15 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'name' => 'required|unique:categories,name,'.$id,
+            'description'=>'nullable',
+            'image'=>'nullable|image',
+            'status'=>'nullable|in:0,1',
+        ],[
+            'status.in'=>'You can select only "Active" or "Inactive".'
+        ]);
+
         Category::updateCategory($request, $id);
 
         return back()->with('message','Category updated successfully.');

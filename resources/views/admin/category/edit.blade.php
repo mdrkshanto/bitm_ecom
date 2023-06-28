@@ -31,6 +31,9 @@
                             <div class="col-md-9">
                                 <input class="form-control" placeholder="Category name" type="text" name="name"
                                        value="{{$category->name}}">
+                                @if($errors->has('name'))
+                                    <span class="text-danger">{{$errors->first('name')}}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="row mb-4">
@@ -38,6 +41,9 @@
                             <div class="col-md-9">
                                 <textarea name="description" class="form-control"
                                           placeholder="Description">{{$category->description}}</textarea>
+                                @if($errors->has('description'))
+                                    <span class="text-danger">{{$errors->first('description')}}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="row mb-4">
@@ -45,6 +51,9 @@
                             <div class="col-md-9">
                                 <input class="form-control" placeholder="Category Image" type="file" name="image"
                                        accept="image/*">
+                                @if($errors->has('image'))
+                                    <span class="text-danger">{{$errors->first('image')}}</span>
+                                @endif
                                 @if($category->image)
                                     <img src="{{asset($category->image)}}" alt="{{$category->name}}" class="mt-3"
                                          width="80" height="50">
@@ -56,16 +65,19 @@
                             <div class="col-md-9">
                                 <div class="row">
                                     <label for="active" class="rdiobox col-md-auto">
-                                        <input type="radio" class="radio-success" name="status" id="active" @checked($category->status === 1)
+                                        <input type="radio" class="radio-success" name="status" id="active" @checked($category->status == 1)
                                         value="1">
                                         <span>Active</span>
                                     </label>
                                     <label for="inactive" class="rdiobox col-md-auto">
-                                        <input type="radio" class="radio-warning" name="status" id="inactive" @checked($category->status !== 1)
+                                        <input type="radio" class="radio-warning" name="status" id="inactive" @checked($category->status != 1)
                                         value="0">
                                         <span>Inactive</span>
                                     </label>
                                 </div>
+                                @if($errors->has('status'))
+                                    <span class="text-danger">{{$errors->first('status')}}</span>
+                                @endif
                             </div>
                         </div>
                         <div class="row">

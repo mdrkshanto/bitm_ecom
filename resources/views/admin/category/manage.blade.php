@@ -47,7 +47,7 @@
                                     @endif
                                 </td>
                                 <td>{{$category->slug}}</td>
-                                <td>{{$category->status === 1 ? 'Active' : 'Inactive'}}</td>
+                                <td>{{$category->status == 1 ? 'Active' : 'Inactive'}}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
                                         <a href="{{route('category.edit',['id'=>$category->id])}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
