@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('subcategories', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->integer('category_id');
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
+            $table->string('slug');
+            $table->enum('status',[0,1])->default(1);
             $table->timestamps();
         });
     }

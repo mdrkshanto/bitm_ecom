@@ -37,7 +37,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $subcategory)
+                            @foreach($subcategories as $subcategory)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$subcategory->name}}</td>
