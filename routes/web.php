@@ -28,7 +28,10 @@ Route::middleware([
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::controller(CategoryController::class)->group(function (){
         Route::get('/category/add','index')->name('category.add');
+        Route::get('/category/edit/{id}','edit')->name('category.edit');
         Route::post('/category/add','create')->name('category.add');
+        Route::post('/category/edit/{id}','update')->name('category.edit');
         Route::get('/category/manage','manage')->name('category.manage');
+        Route::get('/category/delete/{id}','delete')->name('category.delete');
     });
 });

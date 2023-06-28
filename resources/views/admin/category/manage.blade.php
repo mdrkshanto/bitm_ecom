@@ -47,8 +47,8 @@
                                 <td>{{$category->status === 1 ? 'Active' : 'Inactive'}}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                        <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="{{route('category.edit',['id'=>$category->id])}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('category.delete',['id'=>$category->id])}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>

@@ -29,4 +29,25 @@ class CategoryController extends Controller
             'categories'=>$this->categories
         ]);
     }
+
+    public function edit($id)
+    {
+        $this->category = Category::find($id);
+        return view('admin.category.edit',[
+            'category'=>$this->category
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        Category::updateCategory($request, $id);
+
+        return back()->with('message','Category updated successfully.');
+    }
+
+    public function delete($id)
+    {
+        Category::deleteCategory($id);
+        return back()->with('message', 'Category deleted successfully.');
+    }
 }
