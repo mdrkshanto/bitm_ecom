@@ -44,14 +44,6 @@
                             </div>
                         </div>
 
-                        <div class="row mb-4">
-                            <label class="form-label col-md-3">Status</label>
-                            <div class="col-md-9">
-                                <input type="radio" class="radio-success" @ch >
-                                <label for="active" class="form-label">Active</label>
-                            </div>
-                        </div>
-
                         <div class="row">
                             <label class="col-md-3"></label>
                             <div class="col-md-auto">

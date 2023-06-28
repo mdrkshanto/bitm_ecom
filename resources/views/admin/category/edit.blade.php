@@ -22,28 +22,50 @@
                     @if(session('message'))
                         <p class="text-success text-center">{{session('message')}}</p>
                     @endif
-                    <form class="form-horizontal" method="POST" action="{{route('category.edit',['id'=>$category->id])}}"
+                    <form class="form-horizontal" method="POST"
+                          action="{{route('category.edit',['id'=>$category->id])}}"
                           enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Category Name</label>
                             <div class="col-md-9">
-                                <input class="form-control" placeholder="Category name" type="text" name="name" value="{{$category->name}}">
+                                <input class="form-control" placeholder="Category name" type="text" name="name"
+                                       value="{{$category->name}}">
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Description</label>
                             <div class="col-md-9">
-                                <textarea name="description" class="form-control" placeholder="Description">{{$category->description}}</textarea>
+                                <textarea name="description" class="form-control"
+                                          placeholder="Description">{{$category->description}}</textarea>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Category Image</label>
                             <div class="col-md-9">
-                                <input class="form-control" placeholder="Category Image" type="file" name="image" accept="image/*">
+                                <input class="form-control" placeholder="Category Image" type="file" name="image"
+                                       accept="image/*">
                                 @if($category->image)
-                                    <img src="{{asset($category->image)}}" alt="{{$category->name}}" class="mt-3" width="80" height="50">
+                                    <img src="{{asset($category->image)}}" alt="{{$category->name}}" class="mt-3"
+                                         width="80" height="50">
                                 @endif
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label class="form-label col-md-3">Status</label>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <label for="active" class="rdiobox col-md-auto">
+                                        <input type="radio" class="radio-success" name="status" id="active" @checked($category->status === 1)
+                                        value="1">
+                                        <span>Active</span>
+                                    </label>
+                                    <label for="inactive" class="rdiobox col-md-auto">
+                                        <input type="radio" class="radio-warning" name="status" id="inactive" @checked($category->status !== 1)
+                                        value="0">
+                                        <span>Inactive</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="row">

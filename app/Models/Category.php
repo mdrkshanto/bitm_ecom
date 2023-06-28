@@ -44,7 +44,7 @@ class Category extends Model
         self::$category->name = ucwords($request->name);
         self::$category->description = $request->description;
         self::$category->slug = genSulg($request->name, $count, self::$category->id);
-//        self::$category->status = $request->status;
+        self::$category->status = $request->status;
         self::$category->save();
     }
 

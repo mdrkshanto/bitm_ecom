@@ -19,17 +19,20 @@
                     <h3 class="card-title">Categories</h3>
                 </div>
                 <div class="card-body">
+                    @if(session('message'))
+                        <p class="text-center text-success">{{session('message')}}</p>
+                    @endif
                     <div class="table-responsive">
-                        <table class="table table-sm table-striped table-hover text-center" id="basic-datatable">
+                        <table class="table table-sm table-striped table-dark text-white table-hover text-center" id="basic-datatable">
                             <thead>
                             <tr>
-                                <th class="wd-15p border-bottom-0">#</th>
-                                <th class="wd-15p border-bottom-0">Name</th>
-                                <th class="wd-15p border-bottom-0">Description</th>
-                                <th class="wd-20p border-bottom-0">Image</th>
-                                <th class="wd-15p border-bottom-0">Slug</th>
-                                <th class="wd-10p border-bottom-0">Status</th>
-                                <th class="wd-25p border-bottom-0">Action</th>
+                                <th class="wd-15p border-bottom-0 text-white">#</th>
+                                <th class="wd-15p border-bottom-0 text-white">Name</th>
+                                <th class="wd-15p border-bottom-0 text-white">Description</th>
+                                <th class="wd-20p border-bottom-0 text-white">Image</th>
+                                <th class="wd-15p border-bottom-0 text-white">Slug</th>
+                                <th class="wd-10p border-bottom-0 text-white">Status</th>
+                                <th class="wd-25p border-bottom-0 text-white">Action</th>
                             </tr>
                             </thead>
                             <tbody>
