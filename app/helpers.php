@@ -23,7 +23,3 @@ function genSulg($name, $count = false, $id = false)
     }
     return Str::slug($name);
 }
-
-
-
-
