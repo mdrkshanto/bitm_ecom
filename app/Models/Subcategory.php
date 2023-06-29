@@ -15,7 +15,7 @@ class Subcategory extends Model
         self::$subcategory = new Subcategory();
 
         if ($request->file('image')) {
-            self::$subcategory->image = storeImage($request->file('image'), 'images/category/', 300, 200);
+            self::$subcategory->image = storeImage($request->file('image'), 'images/subcategory/', 300, 200);
         }
         self::$subcategory->name           = ucwords($request->name);
         self::$subcategory->category_id    = $request->category_id;
@@ -37,7 +37,7 @@ class Subcategory extends Model
             if (file_exists(self::$subcategory->image)) {
                 unlink(self::$subcategory->image);
             }
-            self::$subcategory->image = storeImage($request->file('image'), 'images/category/', 300, 200);
+            self::$subcategory->image = storeImage($request->file('image'), 'images/subcategory/', 300, 200);
         }
         self::$subcategory->name           = ucwords($request->name);
         self::$subcategory->category_id    = $request->category_id;

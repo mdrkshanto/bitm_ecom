@@ -1,12 +1,12 @@
 @extends('admin.master.index')
 @section('title')
-    Manage Category
+    Manage Brand
 @endsection
 @section('body')
     <!-- PAGE-HEADER -->
     <div class="page-header">
         <div>
-            <h1 class="page-title">Manage Category</h1>
+            <h1 class="page-title">Manage Brand</h1>
         </div>
     </div>
     <!-- PAGE-HEADER END -->
@@ -36,22 +36,22 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $category)
+                            @foreach($brands as $brand)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$category->name}}</td>
-                                <td>{{$category->description}}</td>
+                                <td>{{$brand->name}}</td>
+                                <td>{{$brand->description}}</td>
                                 <td>
-                                    @if($category->image)
-                                        <img src="{{asset($category->image)}}" alt="{{$category->name}}" width="80" height="50">
+                                    @if($brand->image)
+                                        <img src="{{asset($brand->image)}}" alt="{{$brand->name}}" width="80" height="50">
                                     @endif
                                 </td>
-                                <td>{{$category->slug}}</td>
-                                <td>{{$category->status == 1 ? 'Active' : 'Inactive'}}</td>
+                                <td>{{$brand->slug}}</td>
+                                <td>{{$brand->status == 1 ? 'Active' : 'Inactive'}}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{route('category.edit',['id'=>$category->id])}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                        <a href="{{route('category.delete',['id'=>$category->id])}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="{{route('brand.edit',['id'=>$brand->id])}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('brand.delete',['id'=>$brand->id])}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>

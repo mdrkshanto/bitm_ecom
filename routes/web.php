@@ -5,6 +5,7 @@ use App\Http\Controllers\BitmEcomController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,5 +44,14 @@ Route::middleware([
         Route::post('/subcategory/edit/{id}','update')->name('subcategory.edit');
         Route::get('/subcategory/manage','manage')->name('subcategory.manage');
         Route::get('/subcategory/delete/{id}','delete')->name('subcategory.delete');
+    });
+
+    Route::controller(BrandController::class)->group(function (){
+        Route::get('/brand/add','index')->name('brand.add');
+        Route::get('/brand/edit/{id}','edit')->name('brand.edit');
+        Route::post('/brand/add','create')->name('brand.add');
+        Route::post('/brand/edit/{id}','update')->name('brand.edit');
+        Route::get('/brand/manage','manage')->name('brand.manage');
+        Route::get('/brand/delete/{id}','delete')->name('brand.delete');
     });
 });

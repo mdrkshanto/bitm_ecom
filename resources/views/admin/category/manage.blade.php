@@ -21,6 +21,8 @@
                 <div class="card-body">
                     @if(session('message'))
                         <p class="text-center text-success">{{session('message')}}</p>
+                    @elseif(session('error_message'))
+                        <p class="text-center text-danger">{{session('error_message')}}</p>
                     @endif
                     <div class="table-responsive">
                         <table class="table table-sm table-striped table-dark text-white table-hover text-center" id="basic-datatable">
