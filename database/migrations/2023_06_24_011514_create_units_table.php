@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('description')->nullable();
+            $table->string('slug')->unique();
+            $table->enum('status',[0,1])->default(1);
             $table->timestamps();
         });
     }

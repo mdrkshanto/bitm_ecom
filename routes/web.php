@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\UnitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,14 @@ Route::middleware([
         Route::post('/brand/edit/{id}','update')->name('brand.edit');
         Route::get('/brand/manage','manage')->name('brand.manage');
         Route::get('/brand/delete/{id}','delete')->name('brand.delete');
+    });
+
+    Route::controller(UnitController::class)->group(function (){
+        Route::get('/unit/add','index')->name('unit.add');
+        Route::get('/unit/edit/{id}','edit')->name('unit.edit');
+        Route::post('/unit/add','create')->name('unit.add');
+        Route::post('/unit/edit/{id}','update')->name('unit.edit');
+        Route::get('/unit/manage','manage')->name('unit.manage');
+        Route::get('/unit/delete/{id}','delete')->name('unit.delete');
     });
 });
